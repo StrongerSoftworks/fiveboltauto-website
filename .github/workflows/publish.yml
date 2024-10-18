@@ -1,0 +1,50 @@
+name: 'Static To S3'
+
+on:
+  workflow_call:
+    inputs:
+      region:
+        required: true
+        type: string
+      role:
+        required: true
+        type: string
+      bucket:
+        required: true
+        type: string
+      distribution_id:
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    name: 'Build and Deploy'
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Configure aws credentials
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: ${{inputs.region}}
+        role-to-assume: ${{inputs.role}}
+
+    - name: Deploy to S3
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: aws s3 sync ./site s3://${{ inputs.bucket }}
+
+    - name: Invalidate CloudFront cache
+      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{inputs.distribution_id}} --paths "/*"
