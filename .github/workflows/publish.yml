@@ -1,7 +1,7 @@
 name: 'Static To S3'
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       region:
         required: true
