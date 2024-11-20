@@ -1,0 +1,45 @@
+﻿@page "/"
+@using FiveBoltAuto.Web.Helpers
+
+@attribute [Sitemap("/")]
+
+@inject IDomainProvider DomainProvider;
+
+<PageTitle>5boltauto</PageTitle>
+
+@{
+    var domain = DomainProvider.Domain;
+    
+    @* // Open Graph
+    var graph = OpenGraph.MakeGraph(
+        title: "Stronger Softworks - Web Development and SEO", 
+        type: "website", 
+        image: domain + "/bundle/img/stronger-softworks-480.avif",
+        url: domain, 
+        description: "Let Us Help You Grow Your Business", 
+        siteName: "Stronger Softworks");
+
+
+    // Structured Data
+    var websiteSchema = new WebSite()
+    {
+        AlternateName = "Stronger Softworks - Web Development and SEO",
+        Name = "Stronger Softworks",
+        Url = DomainProvider.DomainUri,
+    }; *@
+}
+
+<HeadContent>
+    @* @((MarkupString)graph.ToString())
+
+    <script type="application/ld+json">
+        @((MarkupString)websiteSchema.ToString())
+    </script> *@
+</HeadContent>
+
+<Hero />
+<Address />
+<About />
+<Services />
+<Testimonials />
+<Contact />

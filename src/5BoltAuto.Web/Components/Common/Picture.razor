@@ -1,0 +1,35 @@
+﻿<picture>
+    @foreach (var size in Model.Sizes)
+    {
+        var srcset = Model.ImageUrl.Replace(extension, "-" + size.Width + ".avif 1x, ");
+        srcset += Model.ImageUrl.Replace(extension, "-" + (size.Width * 1.5) + ".avif 1.5x, ");
+        srcset += Model.ImageUrl.Replace(extension, "-" + (size.Width * 2) + ".avif 2x ");
+
+        <source
+            srcset="@srcset"
+            type="image/avif"
+            media="@("(max-width: " + size.Breakpoint + "px)")"
+            width="@size.Width" />
+    }
+    <img
+        loading="lazy"
+        src="@(Model.ImageUrl.Replace(extension, "-" + Model.Width + ".avif"))"
+        alt="@Model.AltText"
+        class="@(Model.CssClass ?? "img-fluid")"
+        width="@Model.Width"
+        type="image/avif"
+    />
+</picture>
+
+
+@code {
+    [Parameter] public required PictureModel Model { get; set; }
+
+    private string extension = ".png";
+
+    protected override void OnParametersSet()
+    {
+        extension = Model.ImageUrl.Substring(Model.ImageUrl.LastIndexOf('.'));
+        base.OnParametersSet();
+    }
+}

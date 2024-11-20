@@ -1,0 +1,65 @@
+<section id="about" class="features">
+    <div class="container px-4 py-5">
+        <hr class="about-divider">
+
+        <div class="row about-item">
+            <div class="col-md-7">
+                <h2 class="about-heading fw-normal lh-1">Small Town</h2>
+                <p class="lead">Located in Port Perry.</p>
+            </div>
+            <div class="col-md-5">
+                <Picture Model="@(
+                    new PictureModel() {
+                        ImageUrl = "/bundle/img/about/about1.avif",
+                        AltText = "Volkwagen Golf",
+                        Width = 480,
+                        CssClass = "about-image img-fluid mx-auto",
+                        Sizes = [new PhotoSize(240, 576), new PhotoSize(360, 992)]
+                    }
+                )" />
+            </div>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="row about-item">
+            <div class="col-md-7 order-md-2">
+                <h2 class="about-heading fw-normal lh-1">Big Service</h2>
+                <p class="lead">Taking care of all of your maintenance and repair needs.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <Picture Model="@(
+                    new PictureModel() {
+                        ImageUrl = "/bundle/img/about/about2.avif",
+                        AltText = "Volkwagen Golf",
+                        Width = 480,
+                        CssClass = "about-image img-fluid mx-auto",
+                        Sizes = [new PhotoSize(240, 576), new PhotoSize(360, 992)]
+                    }
+                )" />
+            </div>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="row about-item">
+            <div class="col-md-7">
+                <h2 class="about-heading fw-normal lh-1">Passion</h2>
+                <p class="lead">Repairing the vehicle and providing good service is the primary focus. I want to give clear and honest evaluation of the vehicle so that the customer can make an informed decision.</p>
+            </div>
+            <div class="col-md-5">
+                 <Picture Model="@(
+                    new PictureModel() {
+                        ImageUrl = "/bundle/img/about/about3.avif",
+                        AltText = "Volkwagen Golf",
+                        Width = 480,
+                        CssClass = "about-image img-fluid mx-auto",
+                        Sizes = [new PhotoSize(240, 576), new PhotoSize(360, 992)]
+                    }
+                )" />
+            </div>
+        </div>
+
+        <hr class="about-divider">
+    </div>
+</section>

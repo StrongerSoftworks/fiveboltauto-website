@@ -1,0 +1,21 @@
+.about {
+    .about-divider {
+        margin: 5rem 0;
+    }
+
+    .about-heading {
+        letter-spacing: -.05rem;
+    }
+
+    @media (min-width: 40em) {
+        .about-heading {
+            font-size: 50px;
+        }
+    }
+
+    @media (min-width: 62em) {
+        .about-heading {
+            margin-top: 7rem;
+        }
+    }
+}
