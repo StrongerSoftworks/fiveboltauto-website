@@ -1,10 +1,4 @@
-﻿@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Medium.ttf');
-    font-display: swap;
-}
-
-@import 'sections/header.scss';
+﻿@import 'sections/header.scss';
 @import 'sections/hero.scss';
 @import 'sections/about.scss';
 @import 'sections/services.scss';

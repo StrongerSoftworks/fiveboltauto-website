@@ -49,13 +49,6 @@
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
-   * Initiate glightbox
-   */
-  // const glightbox = GLightbox({
-  //   selector: '.glightbox'
-  // });
-
-  /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
   window.addEventListener('load', function(e) {
@@ -65,7 +58,7 @@
           let section = document.querySelector(window.location.hash);
           let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
           window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
+            top: section.offsetTop - parseInt(scrollMarginTop) - 40,
             behavior: 'smooth'
           });
         }, 100);

@@ -1,2 +1,14 @@
 ﻿$bootstrap-icons-font-dir: '~bootstrap-icons/font/fonts/';
 @import '~bootstrap-icons/font/bootstrap-icons';
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Medium.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: local('Roboto'), url('../fonts/Audiowide-Regular.ttf');
+    font-display: swap;
+}

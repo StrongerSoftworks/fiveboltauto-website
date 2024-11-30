@@ -1,19 +1,49 @@
 .hero {
     height: 100vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/bundle/img/about/about4.avif');
+    background:  url('/bundle/img/about/about3.avif');
     //background-image:url('/bundle/img/about/about4.avif');
     background-repeat:no-repeat;
     background-size:cover;
     background-position:center;
+
+    h1, h2 {
+        font-family: Audiowide;
+    }
+
+    p {
+        font-weight: 600;
+    }
+
+    .text-wrapper {
+        background-position:center;
+        background-repeat:no-repeat;
+
+        background-image: image-set(
+            url('/bundle/img/hero/cog-360.avif') 1x,
+            url('/bundle/img/hero/cog-540.avif') 1.5x,
+            url('/bundle/img/hero/cog-720.avif') 2x
+        );
+        height:360px;
+
+        @media (min-width: 576px) {
+            background-image: image-set(
+                url('/bundle/img/hero/cog-480.avif') 1x,
+                url('/bundle/img/hero/cog-720.avif') 1.5x,
+                url('/bundle/img/hero/cog-960.avif') 2x
+            );
+            height:480px;
+        }
+    }
+    
 }
 
 .checker {
     width: 100%;
     background-image:
-        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
-    background-size: 60px 60px;
-    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        linear-gradient(45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%);
+    background-size: 4px 4px;
+    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
 }

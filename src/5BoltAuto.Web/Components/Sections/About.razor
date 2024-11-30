@@ -1,13 +1,15 @@
 <section id="about" class="features">
     <div class="container px-4 py-5">
-        <hr class="about-divider">
-
+        <div class="text-center pb-5">
+            <h2>Bringing Integrity to the Automotive Industry</h2>
+        </div>
+        
         <div class="row about-item">
             <div class="col-md-7">
-                <h2 class="about-heading fw-normal lh-1">Small Town</h2>
-                <p class="lead">Located in Port Perry.</p>
+                <h3 class="about-heading fw-normal lh-1">Small Town</h3>
+                <p class="lead">Located in Port Perry. <a href="#contact">Contact</a> to book an appointment.</p>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 d-flex justify-content-center">
                 <Picture Model="@(
                     new PictureModel() {
                         ImageUrl = "/bundle/img/about/about1.avif",
@@ -24,10 +26,10 @@
 
         <div class="row about-item">
             <div class="col-md-7 order-md-2">
-                <h2 class="about-heading fw-normal lh-1">Big Service</h2>
+                <h3 class="about-heading fw-normal lh-1">Big Service</h3>
                 <p class="lead">Taking care of all of your maintenance and repair needs.</p>
             </div>
-            <div class="col-md-5 order-md-1">
+            <div class="col-md-5 order-md-1 d-flex justify-content-center">
                 <Picture Model="@(
                     new PictureModel() {
                         ImageUrl = "/bundle/img/about/about2.avif",
@@ -44,10 +46,10 @@
 
         <div class="row about-item">
             <div class="col-md-7">
-                <h2 class="about-heading fw-normal lh-1">Passion</h2>
+                <h3 class="about-heading fw-normal lh-1">Honesty</h3>
                 <p class="lead">Repairing the vehicle and providing good service is the primary focus. I want to give clear and honest evaluation of the vehicle so that the customer can make an informed decision.</p>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 d-flex justify-content-center">
                  <Picture Model="@(
                     new PictureModel() {
                         ImageUrl = "/bundle/img/about/about3.avif",
@@ -61,5 +63,44 @@
         </div>
 
         <hr class="about-divider">
+
+        <div class="row about-item">
+            <div class="col-md-7 order-md-2">
+                <h3 class="about-heading fw-normal lh-1">Master Mechanic</h3>
+                <p class="lead">Independent mechanic with over 12 years experience in automotive repair. I have been fixing anything and everything since I was a kid. I started with small engines and have worked on everything in between up to big rigs.</p>
+            </div>
+            <div class="col-md-5 order-md-1 d-flex justify-content-center">
+                <Picture Model="@(
+                    new PictureModel() {
+                        ImageUrl = "/bundle/img/about/about2.avif",
+                        AltText = "Volkwagen Golf",
+                        Width = 480,
+                        CssClass = "about-image img-fluid mx-auto",
+                        Sizes = [new PhotoSize(240, 576), new PhotoSize(360, 992)]
+                    }
+                )" />
+            </div>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="row about-item">
+            <div class="col-md-7">
+                <h3 class="about-heading fw-normal lh-1">Licensed 310S</h3>
+                <p class="lead">I attended and graduated with two diplomas from Fanshawe College: Motive Power Technician Automotive and Motive Power Technician Diesel. I have many years experience as a VW dealership technician.</p>
+            </div>
+            <div class="col-md-5 d-flex justify-content-center">
+                 <Picture Model="@(
+                    new PictureModel() {
+                        ImageUrl = "/bundle/img/about/about3.avif",
+                        AltText = "Volkwagen Golf",
+                        Width = 480,
+                        CssClass = "about-image img-fluid mx-auto",
+                        Sizes = [new PhotoSize(240, 576), new PhotoSize(360, 992)]
+                    }
+                )" />
+            </div>
+        </div>
+
     </div>
 </section>
