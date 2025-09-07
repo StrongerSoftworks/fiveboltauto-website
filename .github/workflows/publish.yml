@@ -1,50 +1,46 @@
-name: 'Static To S3'
+name: "Static To Pages"
 
 on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    inputs:
-      region:
-        required: true
-        type: string
-      role:
-        required: true
-        type: string
-      bucket:
-        required: true
-        type: string
-      distribution_id:
-        required: true
-        type: string
 
 permissions:
   id-token: write
   contents: read
+  pages: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
-    name: 'Build and Deploy'
+    name: "Build and Deploy"
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     defaults:
       run:
         shell: bash
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Configure aws credentials
-      if: github.ref == 'refs/heads/main'
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: ${{inputs.region}}
-        role-to-assume: ${{inputs.role}}
-
-    - name: Deploy to S3
-      if: github.ref == 'refs/heads/main'
-      run: aws s3 sync ./site s3://${{ inputs.bucket }}
-
-    - name: Invalidate CloudFront cache
-      if: github.ref == 'refs/heads/main'
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{inputs.distribution_id}} --paths "/*"
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload site folder
+          path: "./site"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
