@@ -51,8 +51,7 @@
             method: 'POST',
             body: JSON.stringify(formJson),
             headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': 'ptnA0sFCrZ8j3G67eejGr3I99IVokjil6GVUxabO'
+                'Content-Type': 'application/json'
             }
         })
             .then(response => {
