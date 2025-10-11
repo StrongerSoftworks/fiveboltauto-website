@@ -6,8 +6,12 @@
     background-size:cover;
     background-position:center;
 
-    h1, h2 {
+    h1, .subtitle {
         font-family: Audiowide;
+    }
+
+    .subtitle {
+        font-size: 1.5em;
     }
 
     p {
@@ -44,6 +48,6 @@
         linear-gradient(-45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%),
         linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.5) 75%);
-    background-size: 4px 4px;
-    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+    background-size: 48px 48px;
+    background-position: 0 0, 0 24px, 24px -24px, -24px 0px;
 }

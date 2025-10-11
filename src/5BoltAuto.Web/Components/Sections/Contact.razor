@@ -1,25 +1,26 @@
 ﻿@using Microsoft.AspNetCore.Components.Forms
 
 <section id="contact" class="contact section">
-    <div class="container section-title">
-        <h2>Contact</h2>
-        <p>Start the Conversation - Let Us Help!</p>
-    </div>
+    <div class="container  px-4">
 
-    <div class="container">
-        <div class="row gy-4 justify-content-center">
+        <div class="text-center pb-5">
+            <h2>Contact</h2>
+        </div>
 
-            <div class="col-lg-10">
-                <div class="info-item"><i class="bi bi-telephone"></i>
-                    <h3>Text or Call Us</h3>
-                    <p><a href="sms:(519)701-2014">(519)701-2014</a></p>
+        <div class="row gy-4 pb-5 justify-content-center">
+
+            <div class="col-12 col-lg-3">
+                <div class="info-item">
+                    <h3><i class="bi bi-telephone pe-2"></i>Text or Call</h3>
+                    <address><a href="sms:(519)281-5188">(519)281-5188</a></address>
                 </div>
             </div>
 
-            <div class="col-lg-10">
-                <div class="info-item"><i class="bi bi-envelope"></i>
-                    <h3>Send Us a Message</h3>
-                    <form id="contact-form" method="post" action="TODO" class="contact-form">
+            <div class="col-12 col-lg-3">
+                <div class="info-item">
+                    <h3><i class="bi bi-envelope pe-2"></i>Email</h3>
+                    <address><a href="mailto:fiveboltauto@outlook.com">fiveboltauto@outlook.com</a></address>
+                    @* <form id="contact-form" method="post" action="TODO" class="contact-form">
                         <div class="row gy-4">
                             <div class="col-md-6">
                                 <input id="name" name="name" type="text" class="form-control" placeholder="Your Name"
@@ -44,9 +45,18 @@
                                 <button type="submit">Send Message</button>
                             </div>
                         </div>
-                    </form>
+                    </form> *@
                 </div>
 
+
+
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <div class="info-item">
+                    <h3><i class="bi bi-geo-alt pe-2"></i>Address</h3>
+                    <address>1346 HWY 7A, Port Perry, L9L 1B5, Ontario, Canada</address>
+                </div>
             </div>
         </div>
     </div>

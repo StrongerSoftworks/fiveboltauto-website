@@ -1,4 +1,4 @@
-name: "Static To Pages"
+name: "Dotnet Static To Pages"
 
 on:
   # Runs on pushes targeting the default branch
@@ -33,14 +33,37 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install npm Dependencies
+        working-directory: ./src/5BoltAuto.Web
+        run: npm ci
+
+      - name: Build assets
+        working-directory: ./src/5BoltAuto.Web
+        run: npm run build
+
+      # - name: Build dotnet
+      #   working-directory: ./src/StrongerSoftworks.Web
+      #   run: dotnet build --configuration Release
+      # - name: Test
+      #   working-directory: ./src/StrongerSoftworks.Web
+      #   run: dotnet test
+
+      - name: Build Static Site
+        working-directory: ./src/5BoltAuto.Web
+        run: dotnet run --launch-profile ssg
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload site folder
-          path: "./site"
+          # Upload out folder
+          path: "./out"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
