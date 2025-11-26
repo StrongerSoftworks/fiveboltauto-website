@@ -6,7 +6,7 @@ namespace FiveBoltAuto.Web.Helpers;
 
 public static class StaticWebSiteHelper
 {
-    private static readonly string staticAssetExtensions = @"^\.(jpe?g|gif|png|avif|webp|woff|woff2|ttf|)$";
+    private static readonly string staticAssetExtensions = @"^\.(jpe?g|gif|png|avif|svg|webp|woff|woff2|ttf|)$";
 
 
 
@@ -17,7 +17,7 @@ public static class StaticWebSiteHelper
     public static StaticResourcesInfoProvider GetStaticResourcesInfo(string webRootPath)
     {
         string[] excludedFiles = [];
-        string[] excludedFolders= [];
+        string[] excludedFolders = [];
 
         List<ResourceInfoBase> pages = new List<ResourceInfoBase>
         {
